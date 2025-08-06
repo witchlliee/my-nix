@@ -17,28 +17,27 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride { mArch = "GENERIC_V3"; };
-  boot.initrd.kernelModules = [ "ntsync" ];
+  boot = {
+     kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride { mArch = "GENERIC_V3"; };
+     initrd.kernelModules = [ "ntsync" ];
+     kernelParams = [
+        "root=UUID=2bc76c12-6a92-4afa-b87f-da8cb077c7c0" "rootflags=subvol=@" "quiet"
+     ];
+     kernel.sysctl = {
+        "kernel.split_lock_mitigate" = 0;
+     };
+  };
 
   zramSwap.enable = true;
 
-  hardware.graphics = {
-  enable = true;
-  enable32Bit = true;
-  package = pkgs.mesa;
-  package32 = pkgs.pkgsi686Linux.mesa;
-  extraPackages = with pkgs; [
-        vaapiVdpau
-        libvdpau-va-gl
-        libva
-        vulkan-loader
-        vulkan-validation-layers
-      ];
-  extraPackages32 = with pkgs; [
-        vaapiVdpau
-        libvdpau-va-gl
-        libva
-      ];
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+    bluetooth = {
+      enable = true;
+    };
   };
 
   xdg.portal = {
@@ -53,7 +52,18 @@
      ];
   };
 
+  services.power-profiles-daemon.enable = true;
+
   security.polkit.enable = true;
+
+  services.udisks2.enable = true;
+
+  fileSystems."/mnt/my-stuff" =
+    {
+      device = "/dev/disk/by-uuid/b1a4833d-896a-4e1f-8e48-116baf94c1a6";
+      fsType = "btrfs";
+      options = [ "defaults" "noatime" "compress=zstd" "commit=120" ];
+    };
 
   networking.hostName = "my-nix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -99,11 +109,24 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services = {
-        displayManager.sddm.enable = true;
-        displayManager.sddm.wayland.enable = true;
-   };
+     displayManager = {
+         sddm = {
+           package = pkgs.kdePackages.sddm;
+           extraPackages = with pkgs; [
+               sddm-astronaut
+               kdePackages.qtsvg
+               kdePackages.qtmultimedia
+               kdePackages.qtvirtualkeyboard
+            ];
+           enable = true;
+           wayland.enable = true;
+           wayland.compositor = "kwin";
+           theme = "sddm-astronaut-theme";
+       };
+    };
+  };
 
-  services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = false;
 
   # Configure console keymap
   console.keyMap = "br-abnt2";
@@ -124,6 +147,8 @@
     support32Bit = true;
     };
   };
+
+  services.blueman.enable = true;
 
   services.udev.extraRules = ''
       # USB
@@ -204,37 +229,47 @@
    home.packages = with pkgs; [
         discord
         lutris
-        xwayland
         pokemmo-installer
         prismlauncher
         protonplus
+        proton-cachyos
+
+        xwayland
         mangohud
         goverlay
         btop
-        proton-cachyos
-        xwayland
         libsndfile
         usbutils
         ananicy-rules-cachyos_git
-        vulkan-loader
         vulkan-tools
+        dxvk
+        glxinfo
+        lsof
         
         glfw
-        xdg-desktop-portal-hyprland
         gnutls
         libgcc
         gcc
+        gh
 
+        xdg-desktop-portal-hyprland
+        dunst
+        wlogout
+        walker
         kdePackages.dolphin
         kdePackages.kio-extras
         kdePackages.qtsvg
         kdePackages.qt6ct
         kdePackages.dolphin-plugins
         qt6Packages.qt5compat
+        kdePackages.qt5compat
         libsForQt5.qt5.qtgraphicaleffects
         kdePackages.qtbase
         kdePackages.qtdeclarative
         kdePackages.qtstyleplugin-kvantum
+        kdePackages.qtwayland
+        libsForQt5.qt5.qtwayland
+        kdePackages.qtimageformats
         material-symbols
         wl-clipboard
         nwg-look
@@ -250,11 +285,15 @@
         swappy
 
         nerd-fonts.jetbrains-mono
+        catppuccin-kde
+        catppuccin-qt5ct
+
         arch-install-scripts
         pnpm
         nodejs_24
         esbuild
         electron_37-bin
+        kdePackages.kservice
 
         fastfetch
 
@@ -285,6 +324,13 @@
 
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
+    (_: prev: {
+      mesa = prev.mesa.overrideAttrs (o: {
+        patches = (o.patches or []) ++ [
+            ./min_image_count.patch
+        ];
+      });
+    })
   ];
 
   services.ananicy = {
@@ -306,10 +352,7 @@
      };
   };
 
-
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-      xwaylandvideobridge
-  ];
+  programs.waybar.enable = true;
 
   programs.niri.package = pkgs.niri-unstable;
   programs.niri.enable = true;
@@ -330,7 +373,20 @@
   };
 
   environment.systemPackages = with pkgs; [
-    (steam.override { extraLibraries = pkgs: [ pkgs.gperftools ]; })
+    (sddm-astronaut.override {
+      embeddedTheme = "pixel_sakura";
+    })
+    gnutls
+    openldap
+    libgpg-error
+    freetype
+    sqlite
+    libxml2
+    xml2
+    SDL
+    SDL2
+    sdl3
+    gperftools
     heroic
     inputs.quickshell.packages.${pkgs.system}.default
     inputs.swww.packages.${pkgs.system}.swww
