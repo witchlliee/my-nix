@@ -38,6 +38,9 @@
     bluetooth = {
       enable = true;
     };
+    cpu.intel = {
+      updateMicrocode = true;
+    };
   };
 
   xdg.portal = {
