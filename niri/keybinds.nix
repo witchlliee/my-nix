@@ -9,7 +9,7 @@
     "Mod+A".action.spawn = ["qs" "ipc" "call" "globalIPC" "toggleLauncher"];
     "Mod+E".action.spawn = "dolphin";
     "Mod+T".action.spawn = "kitty";
-    "Mod+Shift+E".action.spawn = "wlogout";
+    "Mod+Shift+E".action.spawn = ["qs" "ipc" "call" "powerPanel" "toggle"];
 
     "Mod+F".action = fullscreen-window;
     "Mod+V".action = toggle-window-floating;
