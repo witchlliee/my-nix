@@ -61,13 +61,6 @@
 
   services.udisks2.enable = true;
 
-  fileSystems."/mnt/my-stuff" =
-    {
-      device = "/dev/disk/by-uuid/b1a4833d-896a-4e1f-8e48-116baf94c1a6";
-      fsType = "btrfs";
-      options = [ "defaults" "noatime" "compress=zstd" "commit=120" ];
-    };
-
   networking.hostName = "my-nix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
