@@ -55,7 +55,7 @@
      ];
   };
 
-  services.power-profiles-daemon.enable = true;
+  services.tuned.enable = true;
 
   security.polkit.enable = true;
 
@@ -100,7 +100,7 @@
   # You can disable this if you're only using the Wayland session.
   services = {
     xserver = {
-      enable = true;
+      enable = false;
       videoDrivers = [ "amdgpu" ];
       xkb = {
         layout = "br";
@@ -314,9 +314,6 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
     gc = {
       automatic = true;
@@ -327,13 +324,6 @@
 
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
-    (_: prev: {
-      mesa = prev.mesa.overrideAttrs (o: {
-        patches = (o.patches or []) ++ [
-            ./min_image_count.patch
-        ];
-      });
-    })
   ];
 
   services.ananicy = {
@@ -344,18 +334,6 @@
   services.flatpak.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  programs.hyprland = {
-     enable = true;
-     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-     withUWSM = false;
-     xwayland = {
-        enable = true;
-     };
-  };
-
-  programs.waybar.enable = true;
 
   programs.niri.package = pkgs.niri-unstable;
   programs.niri.enable = true;
