@@ -7,7 +7,6 @@
 
     "Mod+Q".action = close-window;
     "Mod+A".action.spawn = ["qs" "ipc" "call" "globalIPC" "toggleLauncher"];
-    "Mod+W".action.spawn = "waypaper";
     "Mod+E".action.spawn = "dolphin";
     "Mod+T".action.spawn = "kitty";
     "Mod+Shift+E".action.spawn = "wlogout";
