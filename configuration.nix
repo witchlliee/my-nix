@@ -21,7 +21,7 @@
      kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride { mArch = "GENERIC_V3"; };
      initrd.kernelModules = [ "ntsync" ];
      kernelParams = [
-        "root=UUID=2bc76c12-6a92-4afa-b87f-da8cb077c7c0" "rootflags=subvol=@" "quiet"
+        "root=UUID=84b1088f-26d4-4aec-8fa9-09a263571ca3" "rootflags=subvol=@" "quiet"
      ];
      kernel.sysctl = {
         "kernel.split_lock_mitigate" = 0;
