@@ -3,10 +3,9 @@
 {
   programs.niri.settings = {
    spawn-at-startup = [
-     { command = ["systemctl" "--user" "start" "hyprpolkitagent"]; }
-     { command = ["qs"]; }
+     { command = ["noctalia-shell"]; }
      { command = ["swww-daemon"]; }
-     { command = ["waypaper" "--restore"]; }
+     { command = ["steam" "-silent"]; }
      { command = ["heroic"]; }
      { command = ["discord"]; }
   ];

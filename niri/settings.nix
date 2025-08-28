@@ -12,7 +12,7 @@
 
       layout = {
 
-        background-color = "#00000000";
+        background-color = "transparent";
 
         border = {
           enable = true;
@@ -64,21 +64,20 @@
       };
 
       environment = {
+          # wayland
         CLUTTER_BACKEND = "wayland";
         GDK_BACKEND = "wayland";
         MOZ_ENABLE_WAYLAND = "1";
-        NIXOS_OZONE_WL = "1";
         QT_QPA_PLATFORM = "wayland";
         ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-        PROTON_ENABLE_WAYLAND = "1";
         SDL_VIDEODRIVER = "wayland";
+  
+          # gaming specific 
+        PROTON_ENABLE_WAYLAND = "1";
+        PROTON_USE_NTSYNC= "1";
 
         QT_QPA_PLATFORMTHEME = "qt6ct";
         QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-
-        XDG_SESSION_TYPE = "wayland";
-        XDG_CURRENT_DESKTOP = "niri";
-        DISPLAY = null;
       };
     };
   };

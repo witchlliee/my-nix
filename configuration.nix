@@ -18,17 +18,28 @@
 
   # Use latest kernel.
   boot = {
-     kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride { mArch = "GENERIC_V3"; };
+     kernelPackages = pkgs.linuxPackages_cachyos-lto;
      initrd.kernelModules = [ "ntsync" ];
      kernelParams = [
-        "root=UUID=84b1088f-26d4-4aec-8fa9-09a263571ca3" "rootflags=subvol=@" "quiet"
+        "root=UUID=84b1088f-26d4-4aec-8fa9-09a263571ca3" "rootflags=subvol=@" "rw" "quiet"
      ];
      kernel.sysctl = {
         "kernel.split_lock_mitigate" = 0;
      };
   };
 
-  zramSwap.enable = true;
+  zramSwap = { 
+     enable = true;
+     priority = 100;
+     memoryPercent = 100;
+  };
+
+  boot = {
+       tmp = {
+           useTmpfs = true;
+           cleanOnBoot = true;
+       };
+  };
 
   hardware = {
     graphics = {
@@ -45,9 +56,47 @@
 
   services.tuned.enable = true;
 
+  services.clamav = {
+     daemon.enable = true;
+     updater.enable = true;
+     scanner.enable = true;
+     fangfrisch = {
+        enable = true;
+        settings = {
+           default = {
+              db_url = "sqlite:////var/lib/fangfrisch/db.sqlite";
+              local_directory = "/var/lib/clamav";
+              max_size = "5MB";
+              on_update_exec = "clamdscan --reload";
+              on_update_timeout = "42";
+           };
+       };
+     };
+  };
+             
+  services.lact.enable = true;
+
   security.polkit.enable = true;
 
   services.udisks2.enable = true;
+
+  fileSystems = 
+    {
+      "/".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
+      "/home".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
+      "/nix".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
+      "/persist".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
+      "/var/log".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
+      "/var/cache".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
+      "/var/tmp".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
+    };
+
+  fileSystems."/mnt/my-stuff" =
+    { 
+      device = "/dev/disk/by-uuid/4f00ab65-a229-4fab-994d-004a2f932582";
+      fsType = "btrfs";
+      options = [ "subvol=/" "defaults" "rw" "noatime" "discard=async" "space_cache=v2" ];
+    };
 
   networking.hostName = "my-nix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -110,29 +159,46 @@
     };
   };
 
-  services.desktopManager.plasma6.enable = false;
-
   # Configure console keymap
   console.keyMap = "br-abnt2";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = false;
-
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
     jack.enable = true;
-    wireplumber.enable = true;
     alsa = {
     enable = true;
     support32Bit = true;
     };
+  extraConfig.pipewire."92-low-latency" = {
+     "context.properties" = {
+        "default.clock.rate" = 48000;
+        "default.clock.quantum" = 128;
+        "default.clock.min-quantum" = 128;
+        "default.clock.max-quantum" = 128;
+      };
+    };
+  extraConfig.pipewire-pulse."92-low-latency" = {
+  context.modules = [
+    {
+      name = "libpipewire-module-protocol-pulse";
+      args = {
+        pulse.min.req = "128/48000";
+        pulse.default.req = "128/48000";
+        pulse.max.req = "128/48000";
+        pulse.min.quantum = "128/48000";
+        pulse.max.quantum = "128/48000";
+      };
+    }
+  ];
+      stream.properties = {
+      node.latency = "128/48000";
+      resample.quality = 4;
+      };
+    };
   };
-
-  services.blueman.enable = true;
 
   services.udev.extraRules = ''
       # USB
@@ -142,9 +208,6 @@
       ATTRS{name}=="Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
       ATTRS{name}=="DualSense Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
   '';
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ellie = {
@@ -157,17 +220,23 @@
     #  thunderbird
     ];
   };
+ 
+  home-manager.users.ellie = { config, lib, pkgs, self, inputs, ... }: {
 
-  home-manager.users.ellie = { config, pkgs, self, inputs, ... }: {
-  programs.fish = {
-     enable = true;
-     interactiveShellInit = ''
-       set fish_greeting
-       starship init fish | source
-     '';
-   };
+  programs = {
+     fish = {
+        enable = true;
+        shellAliases = {
+          nix-update = "sudo nix flake update --flake ~/my-nix && sudo nixos-rebuild switch --flake ~/my-nix";
+        };
+        interactiveShellInit = ''
+          set fish_greeting
+          starship init fish | source
+        '';
+     };
+  };
 
-    programs.git = {
+  programs.git = {
     enable = true;
     userName  = "witchlliee";
     userEmail = "witchlliee@tuta.io";
@@ -216,7 +285,8 @@
         pokemmo-installer
         prismlauncher
         protonplus
-        proton-cachyos
+        daggerfall-unity
+        dolphin-emu
 
         xwayland
         mangohud
@@ -236,11 +306,11 @@
         gcc
         gh
 
-        xdg-desktop-portal-hyprland
-        dunst
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
         wlogout
-        walker
         kdePackages.dolphin
+        nautilus
         kdePackages.kio-extras
         kdePackages.qtsvg
         kdePackages.qt6ct
@@ -253,12 +323,18 @@
         kdePackages.qtstyleplugin-kvantum
         kdePackages.qtwayland
         libsForQt5.qt5.qtwayland
+        egl-wayland
         kdePackages.qtimageformats
         material-symbols
         wl-clipboard
+        cliphist
         nwg-look
         libnotify
+        kdePackages.polkit-kde-agent-1
         hyprpolkitagent
+        catppuccin-kvantum
+        papirus-icon-theme
+        
         hyprshot
         starship
         bibata-cursors
@@ -267,8 +343,11 @@
         grim
         slurp
         swappy
+        matugen 
 
         nerd-fonts.jetbrains-mono
+        roboto-mono
+        inter-nerdfont
         catppuccin-kde
         catppuccin-qt5ct
 
@@ -282,6 +361,7 @@
         fastfetch
 
         spotify
+        vivaldi
    ];
 
   home.stateVersion = "25.05";
@@ -316,10 +396,10 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  programs.fish.enable = true;
+
   programs.niri.package = pkgs.niri-unstable;
   programs.niri.enable = true;
-
-  programs.fish.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -332,12 +412,20 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
+    extraCompatPackages = with pkgs; [
+       proton-ge-bin
+       proton-cachyos_x86_64_v3
+    ];
   };
 
   environment.systemPackages = with pkgs; [
     (sddm-astronaut.override {
       embeddedTheme = "pixel_sakura";
     })
+    wineWow64Packages.staging
+    winetricks
+    clamav
+    xwayland-satellite-unstable
     gnutls
     openldap
     libgpg-error
@@ -350,12 +438,15 @@
     sdl3
     gperftools
     heroic
-    inputs.quickshell.packages.${pkgs.system}.default
-    inputs.swww.packages.${pkgs.system}.swww
+    inputs.quickshell.packages.${system}.default
+    inputs.noctalia.packages.${system}.default
+    inputs.swww.packages.${system}.swww
     vim
     bluez
     wget
     kitty
+    pavucontrol
+    stow
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
