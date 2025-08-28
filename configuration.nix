@@ -77,6 +77,7 @@
   xdg = {
     portal = {
       enable = true;
+      xdgOpenUsePortal = true;
       config.niri = {
          default = ["gnome" "gtk"];
             "org.freedesktop.impl.portal.Access" = "gtk";
