@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, self, inputs, ... }:
+{ config, pkgs, self, inputs, lib, ... }:
 
 {
 
@@ -55,6 +55,16 @@
   };
 
   services.tuned.enable = true;
+ 
+  security = { 
+     apparmor = {
+        enable = true;
+        enableCache = true;
+        packages = with pkgs; [
+           apparmor-profiles
+        ];
+     };
+  };
 
   services.clamav = {
      daemon.enable = true;
@@ -78,20 +88,9 @@
     portal = {
       enable = true;
       xdgOpenUsePortal = true;
-      config.niri = {
-         default = ["gnome" "gtk"];
-            "org.freedesktop.impl.portal.Access" = "gtk";
-            "org.freedesktop.impl.portal.FileChooser" = "gtk";
-            "org.freedesktop.impl.portal.ScreenCast" = "gnome";
-            "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
-      };
-      extraPortals = with pkgs; [
-         xdg-desktop-portal-gnome
-         xdg-desktop-portal-gtk
-      ];
     };
   };
-             
+         
   services.lact.enable = true;
 
   security.polkit.enable = true;
@@ -263,26 +262,6 @@
     size = 24;
   };
 
-  gtk = {
-    enable = true;
-
-    theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Magenta-Darkest";
-    };
-
-    iconTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
-    };
-
-    font = {
-      name = "Sans";
-      size = 11;
-    };
-  };
-
-
    home.packages = with pkgs; [
         discord
         lutris
@@ -310,8 +289,6 @@
         gcc
         gh
 
-        xdg-desktop-portal-gnome
-        xdg-desktop-portal-gtk
         wlogout
         kdePackages.dolphin
         nautilus
@@ -392,13 +369,20 @@
   ];
 
   services.ananicy = {
-    enable = false;
+    enable = true;
     rulesProvider = pkgs.ananicy-rules-cachyos_git;
   };
 
   services.flatpak.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  
+  stylix = {
+    enable = true;
+    image = ./wallpapers/wallhaven-qr2zj5_3840x2160.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    polarity = "dark";
+  };
 
   programs.fish.enable = true;
 
@@ -430,6 +414,8 @@
     winetricks
     clamav
     xwayland-satellite-unstable
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal-gtk
     gnutls
     openldap
     libgpg-error
@@ -451,6 +437,8 @@
     kitty
     pavucontrol
     stow
+   
+    base16-schemes
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

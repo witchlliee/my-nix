@@ -14,10 +14,14 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     swww.url = "github:LGFae/swww";
   };
 
-  outputs = { self, nixpkgs, home-manager, chaotic, niri, quickshell, noctalia, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, chaotic, niri, quickshell, noctalia, stylix, ... }@inputs: {
     nixosConfigurations = {
       my-nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -25,6 +29,7 @@
         modules = [
           ./configuration.nix
           chaotic.nixosModules.default
+          stylix.nixosModules.stylix
           home-manager.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
