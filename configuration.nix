@@ -73,6 +73,23 @@
        };
      };
   };
+  
+  xdg = {
+    portal = {
+      enable = true;
+      config.niri = {
+         default = ["gnome" "gtk"];
+            "org.freedesktop.impl.portal.Access" = "gtk";
+            "org.freedesktop.impl.portal.FileChooser" = "gtk";
+            "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+            "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+      };
+      extraPortals = with pkgs; [
+         xdg-desktop-portal-gnome
+         xdg-desktop-portal-gtk
+      ];
+    };
+  };
              
   services.lact.enable = true;
 
@@ -99,19 +116,10 @@
     };
 
   networking.hostName = "my-nix"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -126,8 +134,6 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
   services = {
     xserver = {
       enable = false;
@@ -139,8 +145,6 @@
     };
   };
 
-
-  # Enable the KDE Plasma Desktop Environment.
   services = {
      displayManager = {
          sddm = {
@@ -159,10 +163,8 @@
     };
   };
 
-  # Configure console keymap
   console.keyMap = "br-abnt2";
 
-  # Enable sound with pipewire.
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -232,6 +234,7 @@
         interactiveShellInit = ''
           set fish_greeting
           starship init fish | source
+          fastfetch
         '';
      };
   };
@@ -388,7 +391,7 @@
   ];
 
   services.ananicy = {
-    enable = true;
+    enable = false;
     rulesProvider = pkgs.ananicy-rules-cachyos_git;
   };
 

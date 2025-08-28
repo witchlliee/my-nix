@@ -63,6 +63,7 @@
              { app-id = "[Ss]team"; }
              { app-id = "steam"; title = "Steam Settings"; }
              { app-id = "org.pulseaudio.pavucontrol"; }
+             { title = "All Files"; }
           ];
              open-floating = true;
         }
