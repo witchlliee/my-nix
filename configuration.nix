@@ -239,6 +239,11 @@
      };
   };
 
+  programs.neovim = {
+    viAlias = true;
+    vimAlias = true;
+  };
+
   programs.git = {
     enable = true;
     userName  = "witchlliee";
@@ -382,6 +387,11 @@
     image = ./wallpapers/wallhaven-qr2zj5_3840x2160.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
     polarity = "dark";
+  };
+  
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
   };
 
   programs.fish.enable = true;
