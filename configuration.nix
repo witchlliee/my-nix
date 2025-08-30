@@ -199,134 +199,6 @@
     ];
   };
  
-  home-manager.users.ellie = { config, lib, pkgs, self, inputs, ... }: {
-
-  programs = {
-     fish = {
-        enable = true;
-        shellAliases = {
-          nix-update = "sudo nix flake update --flake ~/my-nix && sudo nixos-rebuild switch --flake ~/my-nix";
-        };
-        interactiveShellInit = ''
-          set fish_greeting
-          starship init fish | source
-          fastfetch
-        '';
-     };
-  };
-
-  programs.neovim = {
-    viAlias = true;
-    vimAlias = true;
-  };
-
-  programs.git = {
-    enable = true;
-    userName  = "witchlliee";
-    userEmail = "witchlliee@tuta.io";
-    aliases = {
-       ci = "commit";
-       co = "checkout";
-       s = "status";
-    };
-  };
-
-  imports = [
-       ./niri/default.nix
-  ];
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    # x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
-    size = 24;
-  };
-
-   home.packages = with pkgs; [
-        discord
-        lutris
-        pokemmo-installer
-        prismlauncher
-        protonplus
-        daggerfall-unity
-        dolphin-emu
-
-        xwayland
-        mangohud
-        goverlay
-        btop
-        libsndfile
-        usbutils
-        ananicy-rules-cachyos_git
-        vulkan-tools
-        dxvk
-        glxinfo
-        lsof
-        
-        glfw
-        gnutls
-        libgcc
-        gcc
-        gh
-
-        wlogout
-        kdePackages.dolphin
-        nautilus
-        kdePackages.kio-extras
-        kdePackages.qtsvg
-        kdePackages.qt6ct
-        kdePackages.dolphin-plugins
-        qt6Packages.qt5compat
-        kdePackages.qt5compat
-        libsForQt5.qt5.qtgraphicaleffects
-        kdePackages.qtbase
-        kdePackages.qtdeclarative
-        kdePackages.qtstyleplugin-kvantum
-        kdePackages.qtwayland
-        libsForQt5.qt5.qtwayland
-        egl-wayland
-        kdePackages.qtimageformats
-        material-symbols
-        wl-clipboard
-        cliphist
-        nwg-look
-        libnotify
-        catppuccin-kvantum
-        papirus-icon-theme
-        
-        hyprshot
-        starship
-        bibata-cursors
-        bluez
-        gearlever
-        grim
-        slurp
-        swappy
-        matugen 
-
-        nerd-fonts.jetbrains-mono
-        roboto-mono
-        inter-nerdfont
-        catppuccin-kde
-        catppuccin-qt5ct
-
-        arch-install-scripts
-        pnpm
-        nodejs_24
-        esbuild
-        electron_37-bin
-        kdePackages.kservice
-
-        fastfetch
-
-        spotify
-        vivaldi
-   ];
-
-  home.stateVersion = "25.05";
-  };
-
   nix = {
     optimise = {
       automatic = true;
@@ -378,10 +250,6 @@
     enable = true;
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   programs.steam = {
@@ -400,24 +268,16 @@
       embeddedTheme = "pixel_sakura";
     })
     wineWow64Packages.staging
-    winetricks
-    clamav
-    xwayland-satellite-unstable
-    xdg-desktop-portal-gnome
-    xdg-desktop-portal-gtk
-    gnome-keyring
-    gnutls
-    openldap
-    libgpg-error
-    freetype
-    sqlite
-    libxml2
-    xml2
-    SDL
-    SDL2
-    sdl3
-    gperftools
     heroic
+    lutris
+    pokemmo-installer
+    prismlauncher
+    protonplus
+    dolphin-emu
+    winetricks
+    vulkan-tools
+
+    clamav
 
     inputs.quickshell.packages.${system}.default
     inputs.noctalia.packages.${system}.default
@@ -427,7 +287,6 @@
     bluez
     wget
     ghostty
-    kitty
     pavucontrol
     stow
    
