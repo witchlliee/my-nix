@@ -61,12 +61,20 @@
              { title = "Select Background Image"; }
              { app-id = "Vivaldi-stable"; title = "Vivaldi Settings: General - Vivaldi"; }
              { app-id = "[Ss]team"; }
-             { app-id = "steam"; title = "Steam Settings"; }
+             { title = "Steam Settings"; }
              { app-id = "org.pulseaudio.pavucontrol"; }
+             { app-id = "com.vysp3r.ProtonPlus"; }
              { title = "All Files"; }
           ];
              open-floating = true;
         }
+  
+       # {
+       #   matches = [
+       #      { title = "Steam"; }
+       #  ];
+       #      open-floating = false;
+       # }
       
         {
           matches = [{}];

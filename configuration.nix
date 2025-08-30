@@ -134,16 +134,9 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  services = {
-    xserver = {
-      enable = false;
-      videoDrivers = [ "amdgpu" ];
-      xkb = {
-        layout = "br";
-        variant = "";
-      };
-    };
-  };
+  services.xserver.videoDrivers = [ "amdgpu" ];
+ 
+  services.xserver.xkb.layout = "br";
 
   services = {
      displayManager = {
@@ -169,6 +162,7 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    wireplumber.enable = true;
     jack.enable = true;
     alsa = {
     enable = true;
@@ -180,24 +174,6 @@
         "default.clock.quantum" = 128;
         "default.clock.min-quantum" = 128;
         "default.clock.max-quantum" = 128;
-      };
-    };
-  extraConfig.pipewire-pulse."92-low-latency" = {
-  context.modules = [
-    {
-      name = "libpipewire-module-protocol-pulse";
-      args = {
-        pulse.min.req = "128/48000";
-        pulse.default.req = "128/48000";
-        pulse.max.req = "128/48000";
-        pulse.min.quantum = "128/48000";
-        pulse.max.quantum = "128/48000";
-      };
-    }
-  ];
-      stream.properties = {
-      node.latency = "128/48000";
-      resample.quality = 4;
       };
     };
   };
@@ -316,8 +292,6 @@
         cliphist
         nwg-look
         libnotify
-        kdePackages.polkit-kde-agent-1
-        hyprpolkitagent
         catppuccin-kvantum
         papirus-icon-theme
         
@@ -399,6 +373,11 @@
   programs.niri.package = pkgs.niri-unstable;
   programs.niri.enable = true;
 
+  systemd.user.services.niri-flake-polkit.enable = false;
+  security.soteria = {
+    enable = true;
+  };
+
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -426,6 +405,7 @@
     xwayland-satellite-unstable
     xdg-desktop-portal-gnome
     xdg-desktop-portal-gtk
+    gnome-keyring
     gnutls
     openldap
     libgpg-error
@@ -438,12 +418,15 @@
     sdl3
     gperftools
     heroic
+
     inputs.quickshell.packages.${system}.default
     inputs.noctalia.packages.${system}.default
     inputs.swww.packages.${system}.swww
+   
     vim
     bluez
     wget
+    ghostty
     kitty
     pavucontrol
     stow
@@ -456,9 +439,6 @@
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
