@@ -64,6 +64,7 @@
              { title = "Steam Settings"; }
              { app-id = "org.pulseaudio.pavucontrol"; }
              { app-id = "com.vysp3r.ProtonPlus"; }
+             { app-id = "waypaper"; }
              { title = "All Files"; }
           ];
              open-floating = true;

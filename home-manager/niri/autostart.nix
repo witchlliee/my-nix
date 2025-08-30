@@ -3,8 +3,8 @@
 {
   programs.niri.settings = {
    spawn-at-startup = [
-     { command = ["noctalia-shell"]; }
-     { command = ["swww-daemon"]; }
+     { command = ["qs"]; }
+     { command = ["waypaper" "--restore"]; }
      { command = ["steam" "-silent"]; }
      { command = ["heroic"]; }
      { command = ["discord"]; }

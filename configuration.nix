@@ -280,7 +280,6 @@
     clamav
 
     inputs.quickshell.packages.${system}.default
-    inputs.noctalia.packages.${system}.default
     inputs.swww.packages.${system}.swww
    
     vim

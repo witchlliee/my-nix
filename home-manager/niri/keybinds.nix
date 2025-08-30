@@ -6,11 +6,12 @@
  {
 
     "Mod+Q".action = close-window;
-    "Mod+A".action.spawn = ["noctalia-shell" "ipc" "call" "launcher" "toggle"];
+    "Mod+A".action.spawn = ["qs" "ipc" "call" "launcher" "toggle"];
+    "Mod+W".action.spawn = "waypaper";
     "Mod+E".action.spawn = "dolphin";
     "Mod+T".action.spawn = "ghostty";
-    "Mod+D".action.spawn = ["noctalia-shell" "ipc" "call" "sidePanel" "toggle"];
-    "Mod+Shift+E".action.spawn = ["noctalia-shell" "ipc" "call" "powerPanel" "toggle"];
+    "Mod+D".action.spawn = ["qs" "ipc" "call" "sidePanel" "toggle"];
+    "Mod+Shift+E".action.spawn = ["qs" "ipc" "call" "powerPanel" "toggle"];
 
     "Mod+F".action = maximize-column;
     "Mod+V".action = toggle-window-floating;

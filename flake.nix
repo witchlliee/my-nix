@@ -6,10 +6,7 @@
     home-manager.url = "github:nix-community/home-manager";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     niri.url = "github:sodiboo/niri-flake";
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    swww.url = "github:LGFae/swww";
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,10 +15,9 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    swww.url = "github:LGFae/swww";
   };
 
-  outputs = { self, nixpkgs, home-manager, chaotic, niri, quickshell, noctalia, stylix, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, chaotic, niri, quickshell, stylix, ... }@inputs: {
     nixosConfigurations = {
       my-nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

@@ -50,8 +50,10 @@
      gnome-keyring
 
        # desktop
+     swayidle
      wlogout
-     wlogout
+     waypaper
+     mpvpaper
      kdePackages.dolphin
      nautilus
      kdePackages.kio-extras
