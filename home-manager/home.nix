@@ -37,6 +37,7 @@
   imports = [
        ./niri/default.nix
        ./theming.nix
+       ./idle.nix
   ];
 
   home.packages = with pkgs; [
@@ -55,7 +56,6 @@
      waypaper
      mpvpaper
      kdePackages.dolphin
-     nautilus
      kdePackages.kio-extras
      kdePackages.qtsvg
      kdePackages.qt6ct
@@ -97,6 +97,7 @@
      btop
      lsof
      usbutils
+     xorg.xeyes
     
        # libs
      glfw
