@@ -124,7 +124,7 @@
       device = "/dev/disk/by-uuid/4f00ab65-a229-4fab-994d-004a2f932582";
       fsType = "btrfs";
       options = [ "subvol=/" "defaults" "rw" "noatime" "discard=async" "space_cache=v2" ];
-    };
+    }; 
 
   networking.hostName = "my-nix"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -237,7 +237,10 @@
 
   services.flatpak.enable = true;
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/ellie/.steam/root/compatibilitytools.d";
+  };
   
   stylix = {
     enable = true;
