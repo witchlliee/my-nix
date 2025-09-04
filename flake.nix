@@ -7,8 +7,13 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     niri.url = "github:sodiboo/niri-flake";
     swww.url = "github:LGFae/swww";
+    hyprland.url = "github:hyprwm/Hyprland";
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
@@ -23,14 +28,17 @@
         system = "x86_64-linux";
         specialArgs = { inherit self inputs; };
         modules = [
-          ./configuration.nix
+          ./my-system/configuration.nix
           chaotic.nixosModules.default
           stylix.nixosModules.stylix
           home-manager.nixosModules.default
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.ellie = import ./my-home/home.nix;
+            home-manager = {
+               useGlobalPkgs = true;
+               useUserPackages = true;
+               extraSpecialArgs = { inherit self inputs; };
+               users.ellie = import ./my-home/home.nix;
+            };
           }
         ];
       };

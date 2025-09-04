@@ -5,7 +5,7 @@
   services.swayidle =
  let
   lock = "/run/current-system/sw/bin/qs -c noctalia-shell ipc call lockScreen toggle";
-  display = status: "${pkgs.niri}/bin/niri msg action power-${status}-monitors";
+  display = status: "/run/current-system/sw/bin/niri msg action power-${status}-monitors";
  in
  {
   enable = true;
@@ -24,8 +24,8 @@
       resumeCommand = display "on";
     }
    # {
-    #  timeout = 600;
-    #  command = "${pkgs.systemd}/bin/systemctl suspend";
+   #   timeout = 600;
+   #   command = "${pkgs.systemd}/bin/systemctl suspend";
    # }
   ];
   events = [

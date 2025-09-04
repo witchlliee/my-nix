@@ -1,5 +1,10 @@
 { config, lib, pkgs, self, inputs, ... }:
 
+let
+  caelestia-shell = inputs.caelestia-shell.packages."x86_64-linux".default.override {
+    withCli = true;
+  };
+in
 {
       home.username = "ellie";
       home.homeDirectory = "/home/ellie";
@@ -33,13 +38,14 @@
        s = "status";
     };
   };
-
+  
+  programs.ghostty.enable = true;
+ 
   imports = [
        ./niri/default.nix
-       ./theming.nix
-       ./idle.nix
+       # ./idle.nix
   ];
-
+  
   home.packages = with pkgs; [
        # media
      discord
@@ -51,6 +57,8 @@
      gnome-keyring
 
        # desktop
+     caelestia-shell
+     app2unit
      swayidle
      wlogout
      waypaper
@@ -81,6 +89,10 @@
      swappy
      bluez
      gearlever
+     gpu-screen-recorder
+     gpu-screen-recorder-gtk
+     mpv
+     kitty
  
        # theming
      bibata-cursors
@@ -99,7 +111,10 @@
      lsof
      usbutils
      xorg.xeyes
-    
+     kdePackages.ark
+     kdePackages.dolphin-plugins
+     unrar     
+ 
        # libs
      glfw
      gnutls
@@ -107,7 +122,6 @@
      gcc
      gh
   ];
-     
         home.stateVersion = "25.05";
   }
 
