@@ -8,9 +8,9 @@
 
   imports =
     [
-      inputs.niri.nixosModules.niri
       ./hardware-configuration.nix
       ./gaming.nix
+      ./niri.nix
     ];
 
   # Bootloader.
@@ -85,25 +85,7 @@
      };
   };
   
-  xdg = {
-    portal = {
-      enable = true;
-      xdgOpenUsePortal = true;
-      config = {
-        niri = {
-          default = [ "gnome" "gtk"];
-           "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-        };
-        hyprland = {
-          default = [ "hyprland" "gtk" ];
-        };
-      };
-      extraPortals = [
-       pkgs.xdg-desktop-portal-gtk
-       pkgs.xdg-desktop-portal-gnome
-      ];
-    };
-  };
+  xdg.terminal-exec.enable = true;
 
   security.polkit.enable = true;
 
@@ -205,10 +187,6 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-
     };
     gc = {
       automatic = true;
@@ -217,13 +195,9 @@
     };
   };
 
-  nixpkgs.overlays = [
-    inputs.niri.overlays.niri
-  ];
-
   services.ananicy = {
     enable = true;
-    rulesProvider = pkgs.ananicy-rules-cachyos_git;
+    rulesProvider = pkgs.ananicy-rules-cachyos;
   };
 
   services.flatpak.enable = true;
@@ -235,7 +209,7 @@
   stylix = {
     enable = true;
     # image = ./wallpapers/wallhaven-qr2zj5_3840x2160.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/chalk.yaml";
     polarity = "dark";
     cursor = {
       package = pkgs.bibata-cursors;
@@ -251,21 +225,6 @@
 
   programs.fish.enable = true;
 
-  programs.niri.package = pkgs.niri-unstable;
-  programs.niri.enable = true;
-  
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  };
-
-  systemd.user.services.niri-flake-polkit.enable = false;
-  security.soteria = {
-    enable = true;
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   systemd.packages = with pkgs; [ lact ];
@@ -275,7 +234,6 @@
     (sddm-astronaut.override {
       embeddedTheme = "pixel_sakura";
     })
-    kdePackages.kwin
     lact
 
     clamav

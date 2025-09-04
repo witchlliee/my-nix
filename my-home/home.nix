@@ -1,10 +1,5 @@
 { config, lib, pkgs, self, inputs, ... }:
 
-let
-  caelestia-shell = inputs.caelestia-shell.packages."x86_64-linux".default.override {
-    withCli = true;
-  };
-in
 {
       home.username = "ellie";
       home.homeDirectory = "/home/ellie";
@@ -21,6 +16,11 @@ in
           fastfetch
         '';
      };
+  };
+  
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    TERMINAL = "ghostty";
   };
 
   programs.neovim = {
@@ -57,7 +57,6 @@ in
      gnome-keyring
 
        # desktop
-     caelestia-shell
      app2unit
      swayidle
      wlogout

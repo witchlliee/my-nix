@@ -5,9 +5,9 @@
    spawn-at-startup = [
      { sh = "qs -c noctalia-shell"; }
     # { sh = "waypaper --restore"; }
-     { sh = "steam -silent"; }
-     { command = ["heroic"]; }
-     { command = ["discord"]; }
+     { sh = "app2unit -- steam -silent"; }
+     { sh = "app2unit -- heroic"; }
+     { sh = "app2unit -- discord"; }
   ];
 };
 }

@@ -8,8 +8,9 @@
     "Mod+Q".action = close-window;
     "Mod+A".action = sh ''qs -c noctalia-shell ipc call launcher toggle'';
     "Mod+W".action.spawn = "waypaper";
-    "Mod+E".action.spawn = "dolphin";
-    "Mod+T".action.spawn = "ghostty";
+    "Mod+E".action = sh ''app2unit -- dolphin'';
+    "Mod+T".action = sh ''app2unit -T'';
+    "Mod+C".action = sh ''app2unit -- ghostty -e nvim'';
     "Mod+D".action = sh ''qs -c noctalia-shell ipc call sidePanel toggle'';
     "Mod+Shift+E".action = sh ''qs -c noctalia-shell ipc call powerPanel toggle'';
 
