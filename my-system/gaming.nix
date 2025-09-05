@@ -9,7 +9,7 @@
     localNetworkGameTransfers.openFirewall = true;
     extraCompatPackages = with pkgs; [
        proton-ge-bin
-       proton-cachyos_x86_64_v3
+       proton-cachyos_x86_64_v3  # chaotic-nyx needed for proton-cachyos package
     ];
   };
 
