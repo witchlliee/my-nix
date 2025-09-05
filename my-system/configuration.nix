@@ -11,6 +11,7 @@
       ./hardware-configuration.nix
       ./gaming.nix
       ./niri.nix
+      ./uwsm.nix
     ];
 
   # Bootloader.
@@ -84,8 +85,6 @@
        };
      };
   };
-  
-  xdg.terminal-exec.enable = true;
 
   security.polkit.enable = true;
 

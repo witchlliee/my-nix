@@ -21,11 +21,11 @@
           default = [ "gnome" "gtk"];
            "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
         };
+      };
       extraPortals = [
        pkgs.xdg-desktop-portal-gtk
        pkgs.xdg-desktop-portal-gnome
       ];
-      };
     };
   };
 

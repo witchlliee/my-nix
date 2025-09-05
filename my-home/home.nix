@@ -57,7 +57,6 @@
      gnome-keyring
 
        # desktop
-     app2unit
      swayidle
      wlogout
      waypaper

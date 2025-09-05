@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+
   programs.niri = {
     settings = {
 
@@ -62,22 +63,7 @@
         size = 24;
         theme = "Bibata-Modern-Ice";
       };
-
-      environment = {
-          # wayland
-        CLUTTER_BACKEND = "wayland";
-        GDK_BACKEND = "wayland";
-        MOZ_ENABLE_WAYLAND = "1";
-        QT_QPA_PLATFORM = "wayland";
-        ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-        SDL_VIDEODRIVER = "wayland";
-  
-          # gaming specific 
-        PROTON_ENABLE_WAYLAND = "1";
-
-        QT_QPA_PLATFORMTHEME = "qt6ct";
-        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      };
     };
   };
+
 }
