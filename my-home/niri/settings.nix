@@ -63,6 +63,16 @@
         size = 24;
         theme = "Bibata-Modern-Ice";
       };
+ 
+      environment = {
+          # wayland
+        "NIXOS_OZONE_WL" = "1";
+        "PROTON_ENABLE_WAYLAND" = "1";
+        "SDL_VIDEODRIVER" = "wayland,x11,windows";
+        "QT_QPA_PLATFORM" = "wayland";
+        "GDK_BACKEND" = "wayland";
+        "ELECTRON_OZONE_PLATFORM_HINT" = "wayland";
+      }; 
     };
   };
 

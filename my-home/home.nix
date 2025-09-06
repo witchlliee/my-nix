@@ -57,6 +57,7 @@
      gnome-keyring
 
        # desktop
+     app2unit
      swayidle
      wlogout
      waypaper
@@ -90,7 +91,6 @@
      gpu-screen-recorder
      gpu-screen-recorder-gtk
      mpv
-     kitty
  
        # theming
      bibata-cursors
@@ -109,6 +109,7 @@
      lsof
      usbutils
      xorg.xeyes
+     xorg.xlsclients
      kdePackages.ark
      kdePackages.dolphin-plugins
      unrar     
@@ -119,6 +120,9 @@
      libgcc
      gcc
      gh
+     sdl3
+     SDL2
+     SDL
   ];
         home.stateVersion = "25.05";
   }

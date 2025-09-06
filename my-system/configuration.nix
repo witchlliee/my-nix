@@ -11,7 +11,6 @@
       ./hardware-configuration.nix
       ./gaming.nix
       ./niri.nix
-      ./uwsm.nix
     ];
 
   # Bootloader.
@@ -91,6 +90,12 @@
   services.udisks2.enable = true;
 
   services.fstrim.enable = true;
+ 
+  services.envfs.enable = true;
+  
+  programs.nix-ld.enable = true;
+ 
+  xdg.terminal-exec.enable = true;
 
   fileSystems = 
     {

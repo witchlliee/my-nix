@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, inherit, ... }:
 
 {
  
@@ -37,7 +37,15 @@
   programs = {
     niri = {
       enable = true;
-      package = pkgs.niri-unstable;
+      package = pkgs.niri-unstable.overrideAttrs (o: {
+        patches = (o.patches or [ ]) ++ [
+          (pkgs.fetchpatch {
+            url = "https://patch-diff.githubusercontent.com/raw/YaLTeR/niri/pull/2333.diff";
+            hash = "sha256-MN3/GyuTKEj7GIZEN/woFzY3xD/tSSeddvvKpAt6czc=";
+            name = "fullscreen-refactor";
+           })
+        ];
+      });
     };
   };
 
