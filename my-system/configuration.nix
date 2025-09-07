@@ -9,6 +9,8 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./security.nix
+      ./ssd.nix
       ./gaming.nix
       ./niri.nix
     ];
@@ -56,34 +58,6 @@
   };
 
   services.tuned.enable = true;
- 
-  security = { 
-     apparmor = {
-        enable = true;
-        enableCache = true;
-        packages = with pkgs; [
-           apparmor-profiles
-        ];
-     };
-  };
-
-  services.clamav = {
-     daemon.enable = true;
-     updater.enable = true;
-     scanner.enable = true;
-     fangfrisch = {
-        enable = true;
-        settings = {
-           default = {
-              db_url = "sqlite:////var/lib/fangfrisch/db.sqlite";
-              local_directory = "/var/lib/clamav";
-              max_size = "5MB";
-              on_update_exec = "clamdscan --reload";
-              on_update_timeout = "42";
-           };
-       };
-     };
-  };
 
   security.polkit.enable = true;
 
@@ -91,29 +65,7 @@
 
   services.fstrim.enable = true;
  
-  services.envfs.enable = true;
-  
-  programs.nix-ld.enable = true;
- 
   xdg.terminal-exec.enable = true;
-
-  fileSystems = 
-    {
-      "/".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
-      "/home".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
-      "/nix".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
-      "/persist".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
-      "/var/log".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
-      "/var/cache".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
-      "/var/tmp".options = [ "defaults" "noatime" "compress=zstd" "discard=async" "space_cache=v2" ];
-    };
-
-  fileSystems."/mnt/my-stuff" =
-    { 
-      device = "/dev/disk/by-uuid/4f00ab65-a229-4fab-994d-004a2f932582";
-      fsType = "btrfs";
-      options = [ "subvol=/" "defaults" "rw" "noatime" "discard=async" "space_cache=v2" ];
-    }; 
 
   networking.hostName = "my-nix"; # Define your hostname.
   networking.networkmanager.enable = true;
