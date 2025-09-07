@@ -20,5 +20,6 @@
       fsType = "btrfs";
       options = [ "subvol=/" "defaults" "rw" "noatime" "discard=async" "space_cache=v2" ];
     };
+  };
 
 }
