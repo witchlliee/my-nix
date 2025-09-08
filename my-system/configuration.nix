@@ -174,10 +174,6 @@
   services.lact.enable = true;
 
   environment.systemPackages = with pkgs; [
-    (sddm-astronaut.override {
-      embeddedTheme = "pixel_sakura";
-    })
-
     clamav
 
     inputs.quickshell.packages.${system}.default

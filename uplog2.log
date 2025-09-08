@@ -1,0 +1,254 @@
+set 08 06:13:07 my-nix systemd[1]: Starting NixOS Upgrade...
+set 08 06:13:09 my-nix nixos-upgrade-start[22286]: unpacking 1 channels...
+set 08 06:13:26 my-nix nixos-upgrade-start[22891]: error:
+set 08 06:13:26 my-nix nixos-upgrade-start[22891]:        … while fetching the input 'git+file:///home/ellie/my-nix'
+set 08 06:13:26 my-nix nixos-upgrade-start[22891]:        error: opening Git repository "/home/ellie/my-nix": repository path '/home/ellie/my-nix' is not owned by current user
+set 08 06:13:26 my-nix nixos-upgrade-start[22285]: warning: could not build a newer version of nixos-rebuild, using current version
+set 08 06:13:26 my-nix nixos-upgrade-start[22285]: building the system configuration...
+set 08 06:13:26 my-nix nixos-upgrade-start[22901]: error:
+set 08 06:13:26 my-nix nixos-upgrade-start[22901]:        … while fetching the input 'git+file:///home/ellie/my-nix'
+set 08 06:13:26 my-nix nixos-upgrade-start[22901]:        error: opening Git repository "/home/ellie/my-nix": repository path '/home/ellie/my-nix' is not owned by current user
+set 08 06:13:26 my-nix nixos-upgrade-start[22285]: Command 'nix --extra-experimental-features 'nix-command flakes' build --print-out-paths '/home/ellie/my-nix#nixosConfigurations."my-nix".config.system.build.toplevel' --print-build-logs --refresh --no-link' returned non-zero exit status 1.
+set 08 06:13:26 my-nix systemd[1]: nixos-upgrade.service: Main process exited, code=exited, status=1/FAILURE
+set 08 06:13:26 my-nix systemd[1]: nixos-upgrade.service: Failed with result 'exit-code'.
+set 08 06:13:26 my-nix systemd[1]: Failed to start NixOS Upgrade.
+set 08 06:13:26 my-nix systemd[1]: nixos-upgrade.service: Consumed 15.431s CPU time, 702.4M memory peak, 277.8M read from disk, 91.9M written to disk, 36.7M incoming IP traffic, 917.2K outgoing IP traffic.
+-- Boot a626f6761e88431491494c5604231184 --
+set 08 06:21:07 my-nix systemd[1]: Starting NixOS Upgrade...
+set 08 06:21:07 my-nix nixos-upgrade-start[7954]: unpacking 1 channels...
+set 08 06:21:08 my-nix nixos-upgrade-start[7961]: unpacking 'github:witchlliee/my-nix/28fe070a9802960a47d027659e780ccd3227623a' into the Git cache...
+set 08 06:21:39 my-nix nixos-upgrade-start[7953]: building the system configuration...
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: these 7 derivations will be built:
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]:   /nix/store/d6kkf01kj99bjd7sdzjrasvvpnbc22fi-hwdb.bin.drv
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]:   /nix/store/qg2d026v85bzkgd1vibm0p4j9l35dxm3-udev-rules.drv
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]:   /nix/store/7a979klv9dk5g1hfjnad48rm3bq2c0zl-X-Restart-Triggers-systemd-udevd.drv
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]:   /nix/store/npssxggi8di4gzdr975cgr0y7qf2nvi5-unit-systemd-udevd.service.drv
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]:   /nix/store/yyk733wg36q8s7aghwq2x31vmf6axf55-system-units.drv
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]:   /nix/store/5gab5vyrcc2na9p1g5igkyii076r971s-etc.drv
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]:   /nix/store/hfx27z4n8vqp8chhnpz4x67pk92rnpp1-nixos-system-my-nix-25.11.20250905.8eb28ad.drv
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: building '/nix/store/d6kkf01kj99bjd7sdzjrasvvpnbc22fi-hwdb.bin.drv'...
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: building '/nix/store/qg2d026v85bzkgd1vibm0p4j9l35dxm3-udev-rules.drv'...
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/hzfgij1agxgbgjc5gy548x7chcm9dz84-systemd-257.7
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/njqdx2hhhjzdlgfrlsgd5f53lj9qx5xg-ipv6-privacy-extensions.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/njqdx2hhhjzdlgfrlsgd5f53lj9qx5xg-ipv6-privacy-extensions.rules/etc/udev/rules.d/98-ipv6-privacy-extensions.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/98-ipv6-privacy-extensions.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/vbd0z3hb7brv9sb0jwlycfpdp3f6wkww-ipv6-privacy-extensions.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/vbd0z3hb7brv9sb0jwlycfpdp3f6wkww-ipv6-privacy-extensions.rules/etc/udev/rules.d/99-ipv6-privacy-extensions.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/99-ipv6-privacy-extensions.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/njqdx2hhhjzdlgfrlsgd5f53lj9qx5xg-ipv6-privacy-extensions.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/vbd0z3hb7brv9sb0jwlycfpdp3f6wkww-ipv6-privacy-extensions.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/433dgwq1mhn0ss38hvxfn49bl88hjdf4-bcache-tools-1.0.8
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33/lib/udev/rules.d/10-dm.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/10-dm.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/lm25vcqy93yb91y6xhdz1w3p0p018wwc-networkmanager-1.52.1
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/piy7j0s1fzqf049c50j5qb4ckvnykg9i-wpa_supplicant-2.11
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/6l14ni1ql73hipy7xmivzh3kwwalccbr-upower-1.90.6
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33/lib/udev/rules.d/11-dm-lvm.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/11-dm-lvm.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/2c899zp0d2fvcql7d9ahhvxayzmxwdk6-udisks-2.10.2
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/vba2yr064ig8dm977jbq1rxcnyhibxnf-extra-udev-rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/1bcvjp8bapsd8rdjzgz907pa81qs46kp-extra-hwdb-file
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/30zpl9ad40a2k1ppdfn6q5rb6zv2cqpz-bluez-5.83
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/16hsmxgcgxr5sj7awhrxqlcg69djs2a1-pipewire-1.4.7
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Adding hwdb files for package /nix/store/h429nysk9jdn1jv1bf4dggs21z1y1lb5-steam-devices-udev-rules-1.0.0.61-unstable-2024-05-22
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: hwdb.bin> Generating hwdb database...
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33/lib/udev/rules.d/13-dm-disk.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/13-dm-disk.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33/lib/udev/rules.d/69-dm-lvm.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/69-dm-lvm.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33/lib/udev/rules.d/95-dm-notify.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/95-dm-notify.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/433dgwq1mhn0ss38hvxfn49bl88hjdf4-bcache-tools-1.0.8
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/433dgwq1mhn0ss38hvxfn49bl88hjdf4-bcache-tools-1.0.8/lib/udev/rules.d/69-bcache.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/69-bcache.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/lm25vcqy93yb91y6xhdz1w3p0p018wwc-networkmanager-1.52.1
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/lm25vcqy93yb91y6xhdz1w3p0p018wwc-networkmanager-1.52.1/lib/udev/rules.d/84-nm-drivers.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/84-nm-drivers.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/lm25vcqy93yb91y6xhdz1w3p0p018wwc-networkmanager-1.52.1/lib/udev/rules.d/85-nm-unmanaged.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/85-nm-unmanaged.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/lm25vcqy93yb91y6xhdz1w3p0p018wwc-networkmanager-1.52.1/lib/udev/rules.d/90-nm-thunderbolt.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/90-nm-thunderbolt.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/piy7j0s1fzqf049c50j5qb4ckvnykg9i-wpa_supplicant-2.11
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-broadmobi-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-broadmobi-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-cinterion-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-cinterion-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-dell-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-dell-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-dlink-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-dlink-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-ericsson-mbm.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-ericsson-mbm.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-fibocom-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-fibocom-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-foxconn-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-foxconn-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-gosuncn-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-gosuncn-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-haier-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-haier-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-huawei-net-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-huawei-net-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-linktop-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-linktop-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-longcheer-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-longcheer-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-mtk-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-mtk-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-nokia-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-nokia-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-qcom-soc.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-qcom-soc.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-quectel-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-quectel-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-sierra.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-sierra.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-simtech-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-simtech-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-telit-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-telit-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-tplink-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-tplink-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-ublox-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-ublox-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-x22x-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-x22x-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-zte-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-zte-port-types.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/80-mm-candidate.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/80-mm-candidate.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/6l14ni1ql73hipy7xmivzh3kwwalccbr-upower-1.90.6
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/6l14ni1ql73hipy7xmivzh3kwwalccbr-upower-1.90.6/lib/udev/rules.d/60-upower-battery.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/60-upower-battery.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/6l14ni1ql73hipy7xmivzh3kwwalccbr-upower-1.90.6/lib/udev/rules.d/95-upower-hid.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/95-upower-hid.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/6l14ni1ql73hipy7xmivzh3kwwalccbr-upower-1.90.6/lib/udev/rules.d/95-upower-wup.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/95-upower-wup.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/2c899zp0d2fvcql7d9ahhvxayzmxwdk6-udisks-2.10.2
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/2c899zp0d2fvcql7d9ahhvxayzmxwdk6-udisks-2.10.2/lib/udev/rules.d/80-udisks2.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/80-udisks2.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/vba2yr064ig8dm977jbq1rxcnyhibxnf-extra-udev-rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/vba2yr064ig8dm977jbq1rxcnyhibxnf-extra-udev-rules/etc/udev/rules.d/99-local.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/99-local.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/1bcvjp8bapsd8rdjzgz907pa81qs46kp-extra-hwdb-file
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/30zpl9ad40a2k1ppdfn6q5rb6zv2cqpz-bluez-5.83
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/30zpl9ad40a2k1ppdfn6q5rb6zv2cqpz-bluez-5.83/lib/udev/rules.d/97-hid2hci.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/97-hid2hci.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/16hsmxgcgxr5sj7awhrxqlcg69djs2a1-pipewire-1.4.7
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/16hsmxgcgxr5sj7awhrxqlcg69djs2a1-pipewire-1.4.7/lib/udev/rules.d/90-pipewire-alsa.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/90-pipewire-alsa.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Adding rules for package /nix/store/h429nysk9jdn1jv1bf4dggs21z1y1lb5-steam-devices-udev-rules-1.0.0.61-unstable-2024-05-22
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/h429nysk9jdn1jv1bf4dggs21z1y1lb5-steam-devices-udev-rules-1.0.0.61-unstable-2024-05-22/lib/udev/rules.d/60-steam-input.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/60-steam-input.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Copying /nix/store/h429nysk9jdn1jv1bf4dggs21z1y1lb5-steam-devices-udev-rules-1.0.0.61-unstable-2024-05-22/lib/udev/rules.d/60-steam-vr.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/60-steam-vr.rules
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Checking that all programs called by relative paths in udev rules exist in /nix/store/hzfgij1agxgbgjc5gy548x7chcm9dz84-systemd-257.7/lib/udev... OK
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Checking that all programs called by absolute paths in udev rules exist... OK
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> Verifying udev rules using udevadm verify...
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-huawei-net-port-types.rules:25 style: whitespace after comma is expected.
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-huawei-net-port-types.rules:26 style: whitespace after comma is expected.
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/99-local.rules:2 Invalid key/value pair, ignoring.
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/99-local.rules:3 Invalid key/value pair, ignoring.
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/99-local.rules: udev rules check failed.
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules>
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules> 45 udev rules files have been checked.
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules>   Success: 44
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: udev-rules>   Fail:    1
+set 08 06:22:05 my-nix nixos-upgrade-start[8936]: error: builder for '/nix/store/qg2d026v85bzkgd1vibm0p4j9l35dxm3-udev-rules.drv' failed with exit code 1
+set 08 06:22:06 my-nix nixos-upgrade-start[8936]: error: 1 dependencies of derivation '/nix/store/5gab5vyrcc2na9p1g5igkyii076r971s-etc.drv' failed to build
+set 08 06:22:06 my-nix nixos-upgrade-start[8936]: error: 1 dependencies of derivation '/nix/store/hfx27z4n8vqp8chhnpz4x67pk92rnpp1-nixos-system-my-nix-25.11.20250905.8eb28ad.drv' failed to build
+set 08 06:22:06 my-nix nixos-upgrade-start[7953]: Command 'nix --extra-experimental-features 'nix-command flakes' build --print-out-paths 'github:witchlliee/my-nix#nixosConfigurations."my-nix".config.system.build.toplevel' --print-build-logs --refresh --no-link' returned non-zero exit status 1.
+set 08 06:22:06 my-nix systemd[1]: nixos-upgrade.service: Main process exited, code=exited, status=1/FAILURE
+set 08 06:22:06 my-nix systemd[1]: nixos-upgrade.service: Failed with result 'exit-code'.
+set 08 06:22:06 my-nix systemd[1]: Failed to start NixOS Upgrade.
+set 08 06:22:06 my-nix systemd[1]: nixos-upgrade.service: Consumed 45.098s CPU time, 3G memory peak, 192.4M read from disk, 84.3M written to disk, 217.2M incoming IP traffic, 2.4M outgoing IP traffic.
+-- Boot 1423cf9e6f1f4f26815d2f66d23ea503 --
+set 08 06:35:01 my-nix systemd[1]: Starting NixOS Upgrade...
+set 08 06:35:02 my-nix nixos-upgrade-start[6966]: unpacking 1 channels...
+set 08 06:35:02 my-nix nixos-upgrade-start[6970]: error:
+set 08 06:35:02 my-nix nixos-upgrade-start[6970]:        … while fetching the input 'git+file:///home/ellie/my-nix'
+set 08 06:35:02 my-nix nixos-upgrade-start[6970]:        error: opening Git repository "/home/ellie/my-nix": repository path '/home/ellie/my-nix' is not owned by current user
+set 08 06:35:02 my-nix nixos-upgrade-start[6965]: warning: could not build a newer version of nixos-rebuild, using current version
+set 08 06:35:02 my-nix nixos-upgrade-start[6965]: building the system configuration...
+set 08 06:35:02 my-nix nixos-upgrade-start[6973]: error:
+set 08 06:35:02 my-nix nixos-upgrade-start[6973]:        … while fetching the input 'git+file:///home/ellie/my-nix'
+set 08 06:35:02 my-nix nixos-upgrade-start[6973]:        error: opening Git repository "/home/ellie/my-nix": repository path '/home/ellie/my-nix' is not owned by current user
+set 08 06:35:02 my-nix nixos-upgrade-start[6965]: Command 'nix --extra-experimental-features 'nix-command flakes' build --print-out-paths '/home/ellie/my-nix#nixosConfigurations."my-nix".config.system.build.toplevel' --print-build-logs --refresh --no-link' returned non-zero exit status 1.
+set 08 06:35:02 my-nix systemd[1]: nixos-upgrade.service: Main process exited, code=exited, status=1/FAILURE
+set 08 06:35:02 my-nix systemd[1]: nixos-upgrade.service: Failed with result 'exit-code'.
+set 08 06:35:02 my-nix systemd[1]: Failed to start NixOS Upgrade.
+set 08 06:40:29 my-nix systemd[1]: Starting NixOS Upgrade...
+set 08 06:40:29 my-nix nixos-upgrade-start[14903]: unpacking 1 channels...
+set 08 06:40:30 my-nix nixos-upgrade-start[14902]: building the system configuration...
+set 08 06:40:30 my-nix nixos-upgrade-start[14912]: these 7 derivations will be built:
+set 08 06:40:30 my-nix nixos-upgrade-start[14912]:   /nix/store/d6kkf01kj99bjd7sdzjrasvvpnbc22fi-hwdb.bin.drv
+set 08 06:40:30 my-nix nixos-upgrade-start[14912]:   /nix/store/qg2d026v85bzkgd1vibm0p4j9l35dxm3-udev-rules.drv
+set 08 06:40:30 my-nix nixos-upgrade-start[14912]:   /nix/store/7a979klv9dk5g1hfjnad48rm3bq2c0zl-X-Restart-Triggers-systemd-udevd.drv
+set 08 06:40:30 my-nix nixos-upgrade-start[14912]:   /nix/store/npssxggi8di4gzdr975cgr0y7qf2nvi5-unit-systemd-udevd.service.drv
+set 08 06:40:30 my-nix nixos-upgrade-start[14912]:   /nix/store/yyk733wg36q8s7aghwq2x31vmf6axf55-system-units.drv
+set 08 06:40:30 my-nix nixos-upgrade-start[14912]:   /nix/store/5gab5vyrcc2na9p1g5igkyii076r971s-etc.drv
+set 08 06:40:30 my-nix nixos-upgrade-start[14912]:   /nix/store/hfx27z4n8vqp8chhnpz4x67pk92rnpp1-nixos-system-my-nix-25.11.20250905.8eb28ad.drv
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: building '/nix/store/d6kkf01kj99bjd7sdzjrasvvpnbc22fi-hwdb.bin.drv'...
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: building '/nix/store/qg2d026v85bzkgd1vibm0p4j9l35dxm3-udev-rules.drv'...
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/hzfgij1agxgbgjc5gy548x7chcm9dz84-systemd-257.7
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/njqdx2hhhjzdlgfrlsgd5f53lj9qx5xg-ipv6-privacy-extensions.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/njqdx2hhhjzdlgfrlsgd5f53lj9qx5xg-ipv6-privacy-extensions.rules/etc/udev/rules.d/98-ipv6-privacy-extensions.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/98-ipv6-privacy-extensions.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/vbd0z3hb7brv9sb0jwlycfpdp3f6wkww-ipv6-privacy-extensions.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/vbd0z3hb7brv9sb0jwlycfpdp3f6wkww-ipv6-privacy-extensions.rules/etc/udev/rules.d/99-ipv6-privacy-extensions.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/99-ipv6-privacy-extensions.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33/lib/udev/rules.d/10-dm.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/10-dm.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33/lib/udev/rules.d/11-dm-lvm.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/11-dm-lvm.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33/lib/udev/rules.d/13-dm-disk.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/13-dm-disk.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33/lib/udev/rules.d/69-dm-lvm.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/69-dm-lvm.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33/lib/udev/rules.d/95-dm-notify.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/95-dm-notify.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/433dgwq1mhn0ss38hvxfn49bl88hjdf4-bcache-tools-1.0.8
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/433dgwq1mhn0ss38hvxfn49bl88hjdf4-bcache-tools-1.0.8/lib/udev/rules.d/69-bcache.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/69-bcache.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/lm25vcqy93yb91y6xhdz1w3p0p018wwc-networkmanager-1.52.1
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/lm25vcqy93yb91y6xhdz1w3p0p018wwc-networkmanager-1.52.1/lib/udev/rules.d/84-nm-drivers.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/84-nm-drivers.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/lm25vcqy93yb91y6xhdz1w3p0p018wwc-networkmanager-1.52.1/lib/udev/rules.d/85-nm-unmanaged.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/85-nm-unmanaged.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/lm25vcqy93yb91y6xhdz1w3p0p018wwc-networkmanager-1.52.1/lib/udev/rules.d/90-nm-thunderbolt.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/90-nm-thunderbolt.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/piy7j0s1fzqf049c50j5qb4ckvnykg9i-wpa_supplicant-2.11
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-broadmobi-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-broadmobi-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-cinterion-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-cinterion-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/njqdx2hhhjzdlgfrlsgd5f53lj9qx5xg-ipv6-privacy-extensions.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/vbd0z3hb7brv9sb0jwlycfpdp3f6wkww-ipv6-privacy-extensions.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/hn1ywbnr8ap40ipwcd307lz1gqsiwji1-lvm2-2.03.33
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/433dgwq1mhn0ss38hvxfn49bl88hjdf4-bcache-tools-1.0.8
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/lm25vcqy93yb91y6xhdz1w3p0p018wwc-networkmanager-1.52.1
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/piy7j0s1fzqf049c50j5qb4ckvnykg9i-wpa_supplicant-2.11
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/6l14ni1ql73hipy7xmivzh3kwwalccbr-upower-1.90.6
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-dell-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-dell-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-dlink-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-dlink-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/2c899zp0d2fvcql7d9ahhvxayzmxwdk6-udisks-2.10.2
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/vba2yr064ig8dm977jbq1rxcnyhibxnf-extra-udev-rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/1bcvjp8bapsd8rdjzgz907pa81qs46kp-extra-hwdb-file
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/30zpl9ad40a2k1ppdfn6q5rb6zv2cqpz-bluez-5.83
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/16hsmxgcgxr5sj7awhrxqlcg69djs2a1-pipewire-1.4.7
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Adding hwdb files for package /nix/store/h429nysk9jdn1jv1bf4dggs21z1y1lb5-steam-devices-udev-rules-1.0.0.61-unstable-2024-05-22
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: hwdb.bin> Generating hwdb database...
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-ericsson-mbm.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-ericsson-mbm.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-fibocom-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-fibocom-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-foxconn-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-foxconn-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-gosuncn-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-gosuncn-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-haier-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-haier-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-huawei-net-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-huawei-net-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-linktop-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-linktop-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-longcheer-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-longcheer-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-mtk-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-mtk-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-nokia-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-nokia-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-qcom-soc.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-qcom-soc.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-quectel-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-quectel-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-sierra.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-sierra.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-simtech-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-simtech-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-telit-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-telit-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-tplink-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-tplink-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-ublox-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-ublox-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-x22x-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-x22x-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/77-mm-zte-port-types.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-zte-port-types.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/bhlv5mfc7rakg8jcn35q6b91d8wr7lxv-modemmanager-1.22.0/lib/udev/rules.d/80-mm-candidate.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/80-mm-candidate.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/6l14ni1ql73hipy7xmivzh3kwwalccbr-upower-1.90.6
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/6l14ni1ql73hipy7xmivzh3kwwalccbr-upower-1.90.6/lib/udev/rules.d/60-upower-battery.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/60-upower-battery.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/6l14ni1ql73hipy7xmivzh3kwwalccbr-upower-1.90.6/lib/udev/rules.d/95-upower-hid.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/95-upower-hid.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/6l14ni1ql73hipy7xmivzh3kwwalccbr-upower-1.90.6/lib/udev/rules.d/95-upower-wup.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/95-upower-wup.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/2c899zp0d2fvcql7d9ahhvxayzmxwdk6-udisks-2.10.2
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/2c899zp0d2fvcql7d9ahhvxayzmxwdk6-udisks-2.10.2/lib/udev/rules.d/80-udisks2.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/80-udisks2.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/vba2yr064ig8dm977jbq1rxcnyhibxnf-extra-udev-rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/vba2yr064ig8dm977jbq1rxcnyhibxnf-extra-udev-rules/etc/udev/rules.d/99-local.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/99-local.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/1bcvjp8bapsd8rdjzgz907pa81qs46kp-extra-hwdb-file
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/30zpl9ad40a2k1ppdfn6q5rb6zv2cqpz-bluez-5.83
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/30zpl9ad40a2k1ppdfn6q5rb6zv2cqpz-bluez-5.83/lib/udev/rules.d/97-hid2hci.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/97-hid2hci.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/16hsmxgcgxr5sj7awhrxqlcg69djs2a1-pipewire-1.4.7
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/16hsmxgcgxr5sj7awhrxqlcg69djs2a1-pipewire-1.4.7/lib/udev/rules.d/90-pipewire-alsa.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/90-pipewire-alsa.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Adding rules for package /nix/store/h429nysk9jdn1jv1bf4dggs21z1y1lb5-steam-devices-udev-rules-1.0.0.61-unstable-2024-05-22
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/h429nysk9jdn1jv1bf4dggs21z1y1lb5-steam-devices-udev-rules-1.0.0.61-unstable-2024-05-22/lib/udev/rules.d/60-steam-input.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/60-steam-input.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Copying /nix/store/h429nysk9jdn1jv1bf4dggs21z1y1lb5-steam-devices-udev-rules-1.0.0.61-unstable-2024-05-22/lib/udev/rules.d/60-steam-vr.rules to /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/60-steam-vr.rules
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Checking that all programs called by relative paths in udev rules exist in /nix/store/hzfgij1agxgbgjc5gy548x7chcm9dz84-systemd-257.7/lib/udev... OK
+set 08 06:40:31 my-nix nixos-upgrade-start[14912]: udev-rules> Checking that all programs called by absolute paths in udev rules exist... OK
+set 08 06:40:32 my-nix nixos-upgrade-start[14912]: udev-rules> Verifying udev rules using udevadm verify...
+set 08 06:40:32 my-nix nixos-upgrade-start[14912]: udev-rules> /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-huawei-net-port-types.rules:25 style: whitespace after comma is expected.
+set 08 06:40:32 my-nix nixos-upgrade-start[14912]: udev-rules> /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/77-mm-huawei-net-port-types.rules:26 style: whitespace after comma is expected.
+set 08 06:40:32 my-nix nixos-upgrade-start[14912]: udev-rules> /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/99-local.rules:2 Invalid key/value pair, ignoring.
+set 08 06:40:32 my-nix nixos-upgrade-start[14912]: udev-rules> /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/99-local.rules:3 Invalid key/value pair, ignoring.
+set 08 06:40:32 my-nix nixos-upgrade-start[14912]: udev-rules> /nix/store/jzld2l6s8ipkz49lhvnvilspppj6c7a9-udev-rules/99-local.rules: udev rules check failed.
+set 08 06:40:32 my-nix nixos-upgrade-start[14912]: udev-rules>
+set 08 06:40:32 my-nix nixos-upgrade-start[14912]: udev-rules> 45 udev rules files have been checked.
+set 08 06:40:32 my-nix nixos-upgrade-start[14912]: udev-rules>   Success: 44
+set 08 06:40:32 my-nix nixos-upgrade-start[14912]: udev-rules>   Fail:    1
+set 08 06:40:32 my-nix nixos-upgrade-start[14912]: error: builder for '/nix/store/qg2d026v85bzkgd1vibm0p4j9l35dxm3-udev-rules.drv' failed with exit code 1
+set 08 06:40:32 my-nix nixos-upgrade-start[14912]: error: 1 dependencies of derivation '/nix/store/5gab5vyrcc2na9p1g5igkyii076r971s-etc.drv' failed to build
+set 08 06:40:32 my-nix nixos-upgrade-start[14912]: error: 1 dependencies of derivation '/nix/store/hfx27z4n8vqp8chhnpz4x67pk92rnpp1-nixos-system-my-nix-25.11.20250905.8eb28ad.drv' failed to build
+set 08 06:40:32 my-nix nixos-upgrade-start[14902]: Command 'nix --extra-experimental-features 'nix-command flakes' build --print-out-paths 'github:witchlliee/my-nix#nixosConfigurations."my-nix".config.system.build.toplevel' --print-build-logs --refresh --no-link' returned non-zero exit status 1.
+set 08 06:40:32 my-nix systemd[1]: nixos-upgrade.service: Main process exited, code=exited, status=1/FAILURE
+set 08 06:40:32 my-nix systemd[1]: nixos-upgrade.service: Failed with result 'exit-code'.
+set 08 06:40:32 my-nix systemd[1]: Failed to start NixOS Upgrade.
+set 08 06:40:32 my-nix systemd[1]: nixos-upgrade.service: Consumed 2.093s CPU time, 193M memory peak, 49.9M read from disk, 52K written to disk, 11.2K incoming IP traffic, 5.6K outgoing IP traffic.
+set 08 13:42:15 my-nix systemd[1]: Starting NixOS Upgrade...
+set 08 13:42:16 my-nix nixos-upgrade-start[356726]: unpacking 1 channels...
+set 08 13:42:16 my-nix nixos-upgrade-start[356734]: unpacking 'github:witchlliee/my-nix/0a4fc71bc7823d295274a87e528e650cdf040734' into the Git cache...
+set 08 13:42:27 my-nix nixos-upgrade-start[356725]: building the system configuration...
+set 08 13:43:07 my-nix nixos-upgrade-start[356725]: Done. The new configuration is /nix/store/xlakja8gm4jjscp3cxznyz9vim6hiyrd-nixos-system-my-nix-25.11.20250905.8eb28ad
+set 08 13:43:07 my-nix systemd[1]: nixos-upgrade.service: Deactivated successfully.
+set 08 13:43:07 my-nix systemd[1]: Finished NixOS Upgrade.
+set 08 13:43:07 my-nix systemd[1]: nixos-upgrade.service: Consumed 22.478s CPU time, 2.8G memory peak, 187M read from disk, 173.5M written to disk.
