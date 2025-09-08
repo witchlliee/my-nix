@@ -10,6 +10,7 @@
     [
       ./hardware-configuration.nix
       ./security.nix
+      ./autoupgrade.nix
       ./ssd.nix
       ./gaming.nix
       ./niri.nix
@@ -57,14 +58,12 @@
     };
   };
 
-  services.tuned.enable = true;
-
+  services.power-profiles-daemon.enable = true;
+ 
   security.polkit.enable = true;
 
   services.udisks2.enable = true;
 
-  services.fstrim.enable = true;
- 
   xdg.terminal-exec.enable = true;
 
   networking.hostName = "my-nix"; # Define your hostname.
@@ -86,8 +85,6 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  services.xserver.videoDrivers = [ "amdgpu" ];
- 
   services.xserver.xkb.layout = "br";
   
   services.displayManager.gdm.enable = true;
@@ -174,14 +171,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  systemd.packages = with pkgs; [ lact ];
-  systemd.services.lactd.wantedBy = ["multi-user.target"];
+  services.lact.enable = true;
 
   environment.systemPackages = with pkgs; [
     (sddm-astronaut.override {
       embeddedTheme = "pixel_sakura";
     })
-    lact
 
     clamav
 

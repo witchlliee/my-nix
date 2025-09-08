@@ -41,4 +41,9 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    xwayland-satellite-unstable
+    gnome-keyring
+  ];
+
 }

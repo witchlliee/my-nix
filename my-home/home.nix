@@ -43,7 +43,7 @@
  
   imports = [
        ./niri/default.nix
-       # ./idle.nix
+       ./idle.nix
   ];
   
   home.packages = with pkgs; [
@@ -51,10 +51,6 @@
      discord
      vivaldi
      spotify
-
-       # niri
-     xwayland-satellite-unstable
-     gnome-keyring
 
        # desktop
      app2unit
