@@ -131,6 +131,9 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
+      substituters = ["https://hyprland.cachix.org"];
+      trusted-substituters = ["https://hyprland.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
     gc = {
       automatic = true;
@@ -148,6 +151,14 @@
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    SDL_VIDEODRIVER = "wayland,x11,windows";
+    QT_QPA_PLATFORM = "wayland";
+    PROTON_ENABLE_WAYLAND = "1";
+    GDK_BACKEND = "wayland";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+
   };
   
   stylix = {
@@ -166,6 +177,19 @@
     enable = true;
     defaultEditor = true;
   };
+
+  programs.sway = {
+    enable = true;
+    package = pkgs.swayfx;
+  };
+ 
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
+
+  chaotic.mesa-git.enable = true;
 
   programs.fish.enable = true;
 

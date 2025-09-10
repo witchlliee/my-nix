@@ -42,8 +42,9 @@
   programs.ghostty.enable = true;
  
   imports = [
-       ./niri/default.nix
-       ./idle.nix
+    ./sway/default.nix
+    ./niri/default.nix
+    ./idle.nix
   ];
   
   home.packages = with pkgs; [
@@ -108,7 +109,8 @@
      xorg.xlsclients
      kdePackages.ark
      kdePackages.dolphin-plugins
-     unrar     
+     unrar 
+     jq
  
        # libs
      glfw
