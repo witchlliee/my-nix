@@ -8,7 +8,7 @@
     flags = [
       "--print-build-logs"
     ];
-    dates = "18:00";
+    dates = "12:00";
   };
 
 }
