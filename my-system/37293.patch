@@ -1,0 +1,40 @@
+From b4c383054c31143c379b51b476843e1faf953ffc Mon Sep 17 00:00:00 2001
+From: Samuel Pitoiset <samuel.pitoiset@gmail.com>
+Date: Thu, 11 Sep 2025 12:38:59 +0200
+Subject: [PATCH] radv: get NIR options after initializing the physical device
+ cache key
+
+Otherwise, radv_split_fma isn't considered.
+
+Closes: https://gitlab.freedesktop.org/mesa/mesa/-/issues/13878
+Fixes: 7304423b5c6 ("radv: mark RADV_DEBUG=splitfma as deprecated")
+Signed-off-by: Samuel Pitoiset <samuel.pitoiset@gmail.com>
+---
+ src/amd/vulkan/radv_physical_device.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/amd/vulkan/radv_physical_device.c b/src/amd/vulkan/radv_physical_device.c
+index 07b5b000b3ae6..4717e00d6c489 100644
+--- a/src/amd/vulkan/radv_physical_device.c
++++ b/src/amd/vulkan/radv_physical_device.c
+@@ -2383,8 +2383,6 @@ radv_physical_device_try_create(struct radv_instance *instance, drmDevicePtr drm
+    radv_physical_device_get_supported_extensions(pdev, &pdev->vk.supported_extensions);
+    radv_physical_device_get_features(pdev, &pdev->vk.supported_features);
+ 
+-   radv_get_nir_options(pdev);
+-
+ #ifndef _WIN32
+    if (drm_device) {
+       struct stat primary_stat = {0}, render_stat = {0};
+@@ -2412,6 +2410,8 @@ radv_physical_device_try_create(struct radv_instance *instance, drmDevicePtr drm
+ 
+    radv_physical_device_init_cache_key(pdev);
+ 
++   radv_get_nir_options(pdev);
++
+    if (radv_device_get_cache_uuid(pdev, pdev->cache_uuid)) {
+       result = vk_errorf(instance, VK_ERROR_INITIALIZATION_FAILED, "cannot generate UUID");
+       goto fail_wsi;
+-- 
+GitLab
+

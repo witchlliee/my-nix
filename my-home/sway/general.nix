@@ -14,7 +14,7 @@
       output = {
         DP-1 = {
           mode = "1920x1080@239.96Hz";
-          adaptive_sync = "on";
+          adaptive_sync = "off";
           allow_tearing = "yes";
           render_bit_depth = "8";
           color_profile = "srgb";
@@ -38,7 +38,11 @@
           indicator = lib.mkForce "#cba6f7";
         };
         unfocused = {
+          background = lib.mkForce "#505050";
           border = lib.mkForce "#505050";
+          childBorder = lib.mkForce "#505050";
+          indicator = lib.mkForce "#505050";
+          text = lib.mkForce "#505050";
         };
       };
       bars = [ ];

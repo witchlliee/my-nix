@@ -142,6 +142,16 @@
     };
   };
 
+  nixpkgs.overlays = [
+    (_: prev: {
+      mesa_git = prev.mesa_git.overrideAttrs (o: {
+        patches = (o.patches or []) ++ [
+            ./37293.patch
+        ];
+      });
+    })
+  ];
+
   services.ananicy = {
     enable = true;
     rulesProvider = pkgs.ananicy-rules-cachyos;

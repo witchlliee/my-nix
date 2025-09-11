@@ -111,6 +111,7 @@
      kdePackages.dolphin-plugins
      unrar 
      jq
+     autotiling-rs
  
        # libs
      glfw
