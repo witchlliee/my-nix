@@ -42,7 +42,6 @@
   programs.ghostty.enable = true;
  
   imports = [
-    ./sway/default.nix
     ./niri/default.nix
     ./idle.nix
   ];

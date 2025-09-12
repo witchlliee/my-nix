@@ -131,9 +131,6 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
     gc = {
       automatic = true;
@@ -186,17 +183,6 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-  };
-
-  programs.sway = {
-    enable = true;
-    package = pkgs.swayfx;
-  };
- 
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   chaotic.mesa-git.enable = true;
