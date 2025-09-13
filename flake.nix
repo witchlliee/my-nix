@@ -6,7 +6,6 @@
     home-manager.url = "github:nix-community/home-manager";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     niri.url = "github:sodiboo/niri-flake";
-    hyprland.url = "github:hyprwm/Hyprland";
     swww.url = "github:LGFae/swww";
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
