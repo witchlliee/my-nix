@@ -67,10 +67,13 @@
       environment = {
           # wayland
         "NIXOS_OZONE_WL" = "1";
-        "PROTON_ENABLE_WAYLAND" = "1";
         "SDL_VIDEODRIVER" = "wayland,x11,windows";
         "QT_QPA_PLATFORM" = "wayland";
         "GDK_BACKEND" = "wayland";
+        
+          # gaming specific
+        "PROTON_USE_WAYLAND" = "1";
+        "PROTON_USE_WOW64" = "1";
       }; 
     };
   };

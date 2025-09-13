@@ -158,14 +158,6 @@
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    SDL_VIDEODRIVER = "wayland,x11,windows";
-    QT_QPA_PLATFORM = "wayland";
-    PROTON_ENABLE_WAYLAND = "1";
-    GDK_BACKEND = "wayland";
-    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-
   };
   
   stylix = {
